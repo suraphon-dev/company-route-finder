@@ -102,23 +102,23 @@ NUXT_PUBLIC_API_BASE=http://localhost:3001
 - [x] commit แรก: README + .gitignore + โครง folder เปล่า (commit `9874df8`) — ยังไม่ push
 
 ### Phase 1: Backend (Express)
-- [ ] `npm init` ใน `backend/` + ติดตั้ง `express dotenv axios cors`
-- [ ] ติดตั้ง dev deps: `jest supertest` (หรือ `vitest supertest`)
-- [ ] เขียน `services/googleMaps.js` → ฟังก์ชัน `getDirections(origin, destination)` เรียก Directions API พร้อม `departure_time=now`, `traffic_model=best_guess` คืนค่า `{distanceText, durationText, durationInTrafficText, polyline, steps}`
-- [ ] เขียน `routes/directions.js` → `POST /api/directions` รับ `{lat, lng}`, validate (lat -90..90, lng -180..180), เรียก service, คืน JSON
-- [ ] เขียน error handling: input ผิด → 400, Google API error/quota → 500 พร้อม message ที่เหมาะสม (ไม่ leak key หรือ raw error)
-- [ ] ใส่ `cors()` จำกัด origin ตาม `CORS_ORIGIN` env
-- [ ] แยก `app.js` (export instance) กับ `server.js` (listen) เพื่อให้ test เรียกได้โดยไม่เปิด port จริง
+- [x] `npm init` ใน `backend/` + ติดตั้ง `express dotenv axios cors`
+- [x] ติดตั้ง dev deps: `jest supertest` (หรือ `vitest supertest`)
+- [x] เขียน `services/googleMaps.js` → ฟังก์ชัน `getDirections(origin, destination)` เรียก Directions API พร้อม `departure_time=now`, `traffic_model=best_guess` คืนค่า `{distanceText, durationText, durationInTrafficText, polyline, steps}`
+- [x] เขียน `routes/directions.js` → `POST /api/directions` รับ `{lat, lng}`, validate (lat -90..90, lng -180..180), เรียก service, คืน JSON
+- [x] เขียน error handling: input ผิด → 400, Google API error/quota → 500 พร้อม message ที่เหมาะสม (ไม่ leak key หรือ raw error)
+- [x] ใส่ `cors()` จำกัด origin ตาม `CORS_ORIGIN` env
+- [x] แยก `app.js` (export instance) กับ `server.js` (listen) เพื่อให้ test เรียกได้โดยไม่เปิด port จริง
 
 ### Phase 1b: Unit Test Backend
-- [ ] Unit test `services/googleMaps.js`: mock `axios`/ใช้ `nock` (ห้ามยิง Google จริงตอน test) ทดสอบ parse response ถูกต้อง + จัดการ error response ถูกต้อง
-- [ ] Integration test route ด้วย `supertest` (mock service layer):
-  - [ ] input ถูกต้อง → 200 + response shape ถูกต้อง
-  - [ ] ไม่ส่ง lat/lng → 400
-  - [ ] lat/lng นอกขอบเขต → 400
-  - [ ] service throw error → 500
-- [ ] `npm test` ผ่านทั้งหมด
-- [ ] manual sanity check ด้วย Postman/curl ยิง backend จริง (มี key จริง) ยืนยันว่าต่อ Google ได้จริง
+- [x] Unit test `services/googleMaps.js`: mock `axios`/ใช้ `nock` (ห้ามยิง Google จริงตอน test) ทดสอบ parse response ถูกต้อง + จัดการ error response ถูกต้อง
+- [x] Integration test route ด้วย `supertest` (mock service layer):
+  - [x] input ถูกต้อง → 200 + response shape ถูกต้อง
+  - [x] ไม่ส่ง lat/lng → 400
+  - [x] lat/lng นอกขอบเขต → 400
+  - [x] service throw error → 500
+- [x] `npm test` ผ่านทั้งหมด (7/7 passed)
+- [x] manual sanity check ด้วย Postman/curl ยิง backend จริง (มี key จริง) ยืนยันว่าต่อ Google ได้จริง
 
 ### Phase 2: Frontend (Nuxt 4)
 - [ ] `npx nuxi init frontend`

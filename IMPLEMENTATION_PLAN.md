@@ -155,9 +155,9 @@ NUXT_PUBLIC_API_BASE=http://localhost:3001
 - [x] เขียน README: วิธี setup .env, วิธีรัน, วิธีรัน test
 
 ### Phase 5: Push GitHub
-- [ ] commit เป็นก้อนมีความหมาย (feat: backend endpoint / feat: nuxt map view / test: ...)
-- [ ] push ขึ้น GitHub
-- [ ] เปิด repo เช็คด้วยตาว่าไม่มี `.env` ปรากฏจริง (ใช้ GitHub secret scanning ช่วยเช็คด้วย)
+- [x] commit เป็นก้อนมีความหมาย (feat: backend endpoint / feat: nuxt map view / test: ...)
+- [x] push ขึ้น GitHub (`main`, `feature/backend-directions-api`, `feature/frontend-map-view`) + เปิด PR ทั้งสอง merge เข้า `main` แล้ว
+- [x] เปิด repo เช็คด้วยตาว่าไม่มี `.env` ปรากฏจริง (ใช้ GitHub secret scanning ช่วยเช็คด้วย)
 
 ### Phase 6: Deploy จริง
 

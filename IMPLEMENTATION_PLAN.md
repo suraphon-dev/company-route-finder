@@ -142,10 +142,10 @@ NUXT_PUBLIC_API_BASE=http://localhost:3001
 - [x] `npm test` ผ่านทั้งหมด (4/4 passed)
 
 ### Phase 3: E2E Local Manual Test
-- [ ] รัน backend + frontend พร้อมกัน local
-- [ ] ทดสอบ flow เต็ม: เปิดเว็บ → อนุญาต location → เห็นแผนที่ + เส้นทาง + ระยะทาง + เวลา ตรงกับ Google Maps จริง
-- [ ] ทดสอบ edge case: ปฏิเสธ location, ปิด backend แล้วดู error state
-- [ ] เช็ค Network tab: frontend ต้องไม่ยิง Directions API ตรง (ต้องผ่าน backend เท่านั้น)
+- [x] รัน backend + frontend พร้อมกัน local
+- [x] ทดสอบ flow เต็ม: เปิดเว็บ → อนุญาต location → เห็นแผนที่ + เส้นทาง + ระยะทาง + เวลา ตรงกับ Google Maps จริง
+- [x] ทดสอบ edge case: ปฏิเสธ location, ปิด backend แล้วดู error state
+- [x] เช็ค Network tab: frontend ต้องไม่ยิง Directions API ตรง (ต้องผ่าน backend เท่านั้น) — ยืนยันแล้วว่าเห็นแค่ `localhost:3001/api/directions` และ Maps JavaScript API internal calls เท่านั้น
 
 ### Phase 4: Security Check ก่อน Push
 - [ ] `git status` ทั้ง backend/frontend ไม่เห็น `.env`

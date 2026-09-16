@@ -93,13 +93,13 @@ NUXT_PUBLIC_API_BASE=http://localhost:3001
 ## 6. Checklist การทำงาน (เรียงตาม Phase)
 
 ### Phase 0: Setup พื้นฐาน
-- [ ] สร้าง repo บน GitHub (private หรือ public ตามที่อาจารย์กำหนด)
-- [ ] `git init` local + `git remote add origin <url>`
-- [ ] สร้าง `.gitignore` root ก่อน (`.env`, `.env.*.local`, `node_modules/`, `dist/`, `.output/`)
-- [ ] สร้าง Google Cloud Project เปิด API: Maps JavaScript API, Directions API, Geocoding API
-- [ ] สร้าง Browser Key + Server Key ตามข้อ 3 พร้อม restriction ทันที
-- [ ] ผูก Billing Account
-- [ ] commit แรก: README + .gitignore + โครง folder เปล่า → push ทดสอบว่า flow ปกติ
+- [x] สร้าง repo บน GitHub (private หรือ public ตามที่อาจารย์กำหนด)
+- [x] `git init` local + `git remote add origin <url>`
+- [x] สร้าง `.gitignore` root ก่อน (`.env`, `.env.*.local`, `node_modules/`, `dist/`, `.output/`)
+- [x] สร้าง Google Cloud Project เปิด API: Maps JavaScript API, Directions API, Geocoding API
+- [x] สร้าง Browser Key + Server Key ตามข้อ 3 พร้อม restriction ทันที
+- [x] ผูก Billing Account
+- [x] commit แรก: README + .gitignore + โครง folder เปล่า (commit `9874df8`) — ยังไม่ push
 
 ### Phase 1: Backend (Express)
 - [ ] `npm init` ใน `backend/` + ติดตั้ง `express dotenv axios cors`

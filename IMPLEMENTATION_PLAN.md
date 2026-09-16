@@ -121,25 +121,25 @@ NUXT_PUBLIC_API_BASE=http://localhost:3001
 - [ ] manual sanity check ด้วย Postman/curl ยิง backend จริง (มี key จริง) ยืนยันว่าต่อ Google ได้จริง
 
 ### Phase 2: Frontend (Nuxt 4)
-- [ ] `npx nuxi init frontend`
-- [ ] ติดตั้ง Google Maps library สำหรับ Vue 3 (เช่น `vue3-google-map`)
-- [ ] ตั้ง `runtimeConfig.public` ใน `nuxt.config.ts` (`googleMapsKey`, `apiBase`)
-- [ ] สร้าง `.env` + `.env.example`
-- [ ] เขียน `MapView.vue`:
-  - [ ] `onMounted()` → `navigator.geolocation.getCurrentPosition()`
-  - [ ] handle permission denied → แสดง error message ที่เข้าใจง่าย
-  - [ ] เรียก backend ผ่าน `useFetch`/`$fetch` ส่ง lat/lng
-  - [ ] วาดแผนที่ + polyline เส้นทาง ครอบด้วย `<ClientOnly>`
-  - [ ] แสดง distance / duration / duration in traffic
-  - [ ] loading state + error state
+- [x] `npx nuxi init frontend`
+- [x] ติดตั้ง Google Maps library สำหรับ Vue 3 (เช่น `vue3-google-map`)
+- [x] ตั้ง `runtimeConfig.public` ใน `nuxt.config.ts` (`googleMapsKey`, `apiBase`)
+- [x] สร้าง `.env` + `.env.example`
+- [x] เขียน `MapView.vue`:
+  - [x] `onMounted()` → `navigator.geolocation.getCurrentPosition()`
+  - [x] handle permission denied → แสดง error message ที่เข้าใจง่าย
+  - [x] เรียก backend ผ่าน `useFetch`/`$fetch` ส่ง lat/lng
+  - [x] วาดแผนที่ + polyline เส้นทาง ครอบด้วย `<ClientOnly>`
+  - [x] แสดง distance / duration / duration in traffic
+  - [x] loading state + error state
 
 ### Phase 2b: Unit Test Frontend
-- [ ] ติดตั้ง `@nuxt/test-utils vitest @vue/test-utils`
-- [ ] mock `$fetch` + mock `navigator.geolocation`
-- [ ] test: geolocation สำเร็จ → trigger fetch ด้วย lat/lng ถูกต้อง
-- [ ] test: fetch สำเร็จ → แสดง distance/duration ถูกต้อง
-- [ ] test: fetch ล้มเหลว หรือ geolocation ถูกปฏิเสธ → แสดง error state
-- [ ] `npm test` ผ่านทั้งหมด
+- [x] ติดตั้ง `vitest @vue/test-utils` (ใช้ plain vitest + `@vitejs/plugin-vue` แทน `@nuxt/test-utils` เพราะเวอร์ชันปัจจุบันของ `@nuxt/test-utils` ไม่ compatible กับ Nuxt 4.5 — เจอ error `NUXT_E1005` ตอนใช้ `nuxt` test environment)
+- [x] mock `$fetch` + mock `navigator.geolocation`
+- [x] test: geolocation สำเร็จ → trigger fetch ด้วย lat/lng ถูกต้อง
+- [x] test: fetch สำเร็จ → แสดง distance/duration ถูกต้อง
+- [x] test: fetch ล้มเหลว หรือ geolocation ถูกปฏิเสธ → แสดง error state
+- [x] `npm test` ผ่านทั้งหมด (4/4 passed)
 
 ### Phase 3: E2E Local Manual Test
 - [ ] รัน backend + frontend พร้อมกัน local

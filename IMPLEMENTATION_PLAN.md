@@ -148,11 +148,11 @@ NUXT_PUBLIC_API_BASE=http://localhost:3001
 - [x] เช็ค Network tab: frontend ต้องไม่ยิง Directions API ตรง (ต้องผ่าน backend เท่านั้น) — ยืนยันแล้วว่าเห็นแค่ `localhost:3001/api/directions` และ Maps JavaScript API internal calls เท่านั้น
 
 ### Phase 4: Security Check ก่อน Push
-- [ ] `git status` ทั้ง backend/frontend ไม่เห็น `.env`
-- [ ] `git log --all --full-history -- .env` ยืนยันไม่เคยหลุดในอดีต
-- [ ] `.env.example` มีแค่ชื่อ key ไม่มีค่าจริง
-- [ ] grep หา key pattern ในโค้ดทุกไฟล์ (กัน hardcode หลุด)
-- [ ] เขียน README: วิธี setup .env, วิธีรัน, วิธีรัน test
+- [x] `git status` ทั้ง backend/frontend ไม่เห็น `.env`
+- [x] `git log --all --full-history -- .env` ยืนยันไม่เคยหลุดในอดีต
+- [x] `.env.example` มีแค่ชื่อ key ไม่มีค่าจริง
+- [x] grep หา key pattern ในโค้ดทุกไฟล์ (กัน hardcode หลุด) — grep `AIza` ทั้ง backend/frontend branch ไม่พบ
+- [x] เขียน README: วิธี setup .env, วิธีรัน, วิธีรัน test
 
 ### Phase 5: Push GitHub
 - [ ] commit เป็นก้อนมีความหมาย (feat: backend endpoint / feat: nuxt map view / test: ...)

@@ -4,6 +4,33 @@
 
 รายละเอียดแผนงานและสถาปัตยกรรมทั้งหมดอยู่ใน [`IMPLEMENTATION_PLAN.md`](./IMPLEMENTATION_PLAN.md)
 
+## Production
+
+- Frontend: https://company-route-finder-opal.vercel.app
+- Backend: https://company-route-finder.onrender.com
+- Repo: https://github.com/suraphon-dev/company-route-finder
+
+## Architecture
+
+```
+┌──────────────┐      lat/lng      ┌──────────────┐      Directions API      ┌───────────────────┐
+│   Browser    │ ───────────────▶  │   Backend    │ ────────────────────────▶ │  Google Maps API   │
+│ (Nuxt/Vue,   │                   │  (Express)   │                            │ (Directions/Geo)   │
+│  geolocation)│ ◀─────────────── │              │ ◀──────────────────────── │                     │
+└──────┬───────┘   route/distance  └──────────────┘      route data           └───────────────────┘
+       │
+       │ Maps JavaScript API (render only, browser key)
+       ▼
+┌──────────────┐
+│ Google Maps  │
+│  (map tiles) │
+└──────────────┘
+```
+
+- Frontend ดึงตำแหน่งผู้ใช้ผ่าน `navigator.geolocation` แล้วส่ง `{lat, lng}` ไปที่ backend เท่านั้น — **ไม่เรียก Directions API ตรงจาก browser**
+- Backend เป็นจุดเดียวที่ถือ server key และเรียก Google Directions API (พร้อม `departure_time=now`, `traffic_model=best_guess`) แล้วส่งผลกลับเป็น JSON (ระยะทาง, เวลา, polyline)
+- Frontend ใช้ Maps JavaScript API (browser key, restrict ด้วย HTTP referrer) แสดงแผนที่และวาดเส้นทางจาก polyline ที่ backend ส่งมา
+
 ## Tech Stack
 
 - Backend: Node.js + Express

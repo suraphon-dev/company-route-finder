@@ -162,26 +162,26 @@ NUXT_PUBLIC_API_BASE=http://localhost:3001
 ### Phase 6: Deploy จริง
 
 **Backend (Render/Railway)**
-- [ ] Deploy backend
-- [ ] ตั้ง env var (`GOOGLE_MAPS_SERVER_KEY`, `COMPANY_LAT`, `COMPANY_LNG`, `CORS_ORIGIN`) ใน dashboard
-- [ ] อัปเดต IP restriction ของ server key เป็น IP จริงของ backend ที่ deploy
-- [ ] ทดสอบยิง endpoint ที่ deploy แล้วด้วย Postman
+- [x] Deploy backend → https://company-route-finder.onrender.com
+- [x] ตั้ง env var (`GOOGLE_MAPS_SERVER_KEY`, `COMPANY_LAT`, `COMPANY_LNG`, `CORS_ORIGIN`) ใน dashboard
+- [x] อัปเดต IP restriction ของ server key เป็น IP จริงของ backend ที่ deploy (ใช้ Render shared outbound IP ของ region — ทดสอบยิง endpoint production หลังตั้งค่าแล้วได้ 200 ปกติ)
+- [x] ทดสอบยิง endpoint ที่ deploy แล้วด้วย Postman/curl (200 กรณี valid, 400 กรณี invalid input)
 
 **Frontend (Vercel)**
-- [ ] Deploy frontend (connect GitHub repo)
-- [ ] ตั้ง env var (`NUXT_PUBLIC_GOOGLE_MAPS_KEY`, `NUXT_PUBLIC_API_BASE` = backend URL จริง)
-- [ ] อัปเดต HTTP referrer restriction ของ browser key เป็นโดเมน production จริง
-- [ ] อัปเดต `CORS_ORIGIN` ฝั่ง backend ให้ตรงโดเมน frontend production
+- [x] Deploy frontend (connect GitHub repo) → https://company-route-finder-opal.vercel.app
+- [x] ตั้ง env var (`NUXT_PUBLIC_GOOGLE_MAPS_KEY`, `NUXT_PUBLIC_API_BASE` = backend URL จริง)
+- [x] อัปเดต HTTP referrer restriction ของ browser key เป็นโดเมน production จริง
+- [x] อัปเดต `CORS_ORIGIN` ฝั่ง backend ให้ตรงโดเมน frontend production (ยืนยันด้วย curl ว่า `access-control-allow-origin` ตรงกับ Vercel domain)
 
 **Production Test**
-- [ ] ทดสอบ flow เต็มบน URL จริง
-- [ ] ทดสอบจากมือถือจริง (geolocation behavior ต่างจาก desktop)
+- [x] ทดสอบ flow เต็มบน URL จริง
+- [x] ทดสอบจากมือถือจริง (geolocation behavior ต่างจาก desktop)
 
 ### Phase 7: สรุปส่งงาน
-- [ ] README ครบ: setup, วิธีรัน local, วิธีรัน test, ลิงก์ production, architecture diagram/คำอธิบาย
-- [ ] แนบ URL frontend production
-- [ ] แนบ URL repo GitHub
-- [ ] เช็ครอบสุดท้าย: `.env` ไม่มีใน git history
+- [x] README ครบ: setup, วิธีรัน local, วิธีรัน test, ลิงก์ production, architecture diagram/คำอธิบาย
+- [x] แนบ URL frontend production → https://company-route-finder-opal.vercel.app
+- [x] แนบ URL repo GitHub → https://github.com/suraphon-dev/company-route-finder
+- [x] เช็ครอบสุดท้าย: `.env` ไม่มีใน git history
 
 ---
 

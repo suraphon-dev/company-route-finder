@@ -121,38 +121,38 @@ NUXT_PUBLIC_API_BASE=http://localhost:3001
 - [x] manual sanity check ด้วย Postman/curl ยิง backend จริง (มี key จริง) ยืนยันว่าต่อ Google ได้จริง
 
 ### Phase 2: Frontend (Nuxt 4)
-- [ ] `npx nuxi init frontend`
-- [ ] ติดตั้ง Google Maps library สำหรับ Vue 3 (เช่น `vue3-google-map`)
-- [ ] ตั้ง `runtimeConfig.public` ใน `nuxt.config.ts` (`googleMapsKey`, `apiBase`)
-- [ ] สร้าง `.env` + `.env.example`
-- [ ] เขียน `MapView.vue`:
-  - [ ] `onMounted()` → `navigator.geolocation.getCurrentPosition()`
-  - [ ] handle permission denied → แสดง error message ที่เข้าใจง่าย
-  - [ ] เรียก backend ผ่าน `useFetch`/`$fetch` ส่ง lat/lng
-  - [ ] วาดแผนที่ + polyline เส้นทาง ครอบด้วย `<ClientOnly>`
-  - [ ] แสดง distance / duration / duration in traffic
-  - [ ] loading state + error state
+- [x] `npx nuxi init frontend`
+- [x] ติดตั้ง Google Maps library สำหรับ Vue 3 (เช่น `vue3-google-map`)
+- [x] ตั้ง `runtimeConfig.public` ใน `nuxt.config.ts` (`googleMapsKey`, `apiBase`)
+- [x] สร้าง `.env` + `.env.example`
+- [x] เขียน `MapView.vue`:
+  - [x] `onMounted()` → `navigator.geolocation.getCurrentPosition()`
+  - [x] handle permission denied → แสดง error message ที่เข้าใจง่าย
+  - [x] เรียก backend ผ่าน `useFetch`/`$fetch` ส่ง lat/lng
+  - [x] วาดแผนที่ + polyline เส้นทาง ครอบด้วย `<ClientOnly>`
+  - [x] แสดง distance / duration / duration in traffic
+  - [x] loading state + error state
 
 ### Phase 2b: Unit Test Frontend
-- [ ] ติดตั้ง `@nuxt/test-utils vitest @vue/test-utils`
-- [ ] mock `$fetch` + mock `navigator.geolocation`
-- [ ] test: geolocation สำเร็จ → trigger fetch ด้วย lat/lng ถูกต้อง
-- [ ] test: fetch สำเร็จ → แสดง distance/duration ถูกต้อง
-- [ ] test: fetch ล้มเหลว หรือ geolocation ถูกปฏิเสธ → แสดง error state
-- [ ] `npm test` ผ่านทั้งหมด
+- [x] ติดตั้ง `vitest @vue/test-utils` (ใช้ plain vitest + `@vitejs/plugin-vue` แทน `@nuxt/test-utils` เพราะเวอร์ชันปัจจุบันของ `@nuxt/test-utils` ไม่ compatible กับ Nuxt 4.5 — เจอ error `NUXT_E1005` ตอนใช้ `nuxt` test environment)
+- [x] mock `$fetch` + mock `navigator.geolocation`
+- [x] test: geolocation สำเร็จ → trigger fetch ด้วย lat/lng ถูกต้อง
+- [x] test: fetch สำเร็จ → แสดง distance/duration ถูกต้อง
+- [x] test: fetch ล้มเหลว หรือ geolocation ถูกปฏิเสธ → แสดง error state
+- [x] `npm test` ผ่านทั้งหมด (4/4 passed)
 
 ### Phase 3: E2E Local Manual Test
-- [ ] รัน backend + frontend พร้อมกัน local
-- [ ] ทดสอบ flow เต็ม: เปิดเว็บ → อนุญาต location → เห็นแผนที่ + เส้นทาง + ระยะทาง + เวลา ตรงกับ Google Maps จริง
-- [ ] ทดสอบ edge case: ปฏิเสธ location, ปิด backend แล้วดู error state
-- [ ] เช็ค Network tab: frontend ต้องไม่ยิง Directions API ตรง (ต้องผ่าน backend เท่านั้น)
+- [x] รัน backend + frontend พร้อมกัน local
+- [x] ทดสอบ flow เต็ม: เปิดเว็บ → อนุญาต location → เห็นแผนที่ + เส้นทาง + ระยะทาง + เวลา ตรงกับ Google Maps จริง
+- [x] ทดสอบ edge case: ปฏิเสธ location, ปิด backend แล้วดู error state
+- [x] เช็ค Network tab: frontend ต้องไม่ยิง Directions API ตรง (ต้องผ่าน backend เท่านั้น) — ยืนยันแล้วว่าเห็นแค่ `localhost:3001/api/directions` และ Maps JavaScript API internal calls เท่านั้น
 
 ### Phase 4: Security Check ก่อน Push
-- [ ] `git status` ทั้ง backend/frontend ไม่เห็น `.env`
-- [ ] `git log --all --full-history -- .env` ยืนยันไม่เคยหลุดในอดีต
-- [ ] `.env.example` มีแค่ชื่อ key ไม่มีค่าจริง
-- [ ] grep หา key pattern ในโค้ดทุกไฟล์ (กัน hardcode หลุด)
-- [ ] เขียน README: วิธี setup .env, วิธีรัน, วิธีรัน test
+- [x] `git status` ทั้ง backend/frontend ไม่เห็น `.env`
+- [x] `git log --all --full-history -- .env` ยืนยันไม่เคยหลุดในอดีต
+- [x] `.env.example` มีแค่ชื่อ key ไม่มีค่าจริง
+- [x] grep หา key pattern ในโค้ดทุกไฟล์ (กัน hardcode หลุด) — grep `AIza` ทั้ง backend/frontend branch ไม่พบ
+- [x] เขียน README: วิธี setup .env, วิธีรัน, วิธีรัน test
 
 ### Phase 5: Push GitHub
 - [ ] commit เป็นก้อนมีความหมาย (feat: backend endpoint / feat: nuxt map view / test: ...)
